@@ -1,16 +1,15 @@
 # client.py
 import socket
-import webbrowser
 from tkinter import *
 
 
 def enviar():
-    # create a socket object
+    # criar um objeto de soquete
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # get local machine name
+    # obter o nome da máquina local
     host = socket.gethostname()
     port = 9999
-    # connection to hostname on the port.
+    # connection to hostname on the port
 
     s.connect((host, port))
     print("Conexão estabelecida")
@@ -23,22 +22,22 @@ def enviar():
 
     try:
         if (float(lol) < 18.5):
-            a = Label(window, text="Infelizmente, você está abaixo do peso.")
+            a = Label(window, text="você está abaixo do peso.")
             a.grid(column=0, row=7)
         elif (float(lol) >= 18.5 and float(lol) < 24.9):
-            a = Label(window, text="Parabéns, você está no peso ideal.")
+            a = Label(window, text="você está no peso ideal.")
             a.grid(column=0, row=7)
         elif (float(lol) >= 25 and float(lol) < 29.9):
-            a = Label(window, text="Infelizmente você está com sobrepeso.")
+            a = Label(window, text="você está com sobrepeso")
             a.grid(column=0, row=7)
         elif (float(lol) < 34.9 and float(lol) >= 30):
-            a = Label(window, text="Infelizmente, você está acima do peso. Obesidade Grau 1.")
+            a = Label(window, text="você está acima do peso. Obesidade Grau 1.")
             a.grid(column=0, row=7)
         elif (float(lol) < 39.9 and float(lol) >= 35):
-            a = Label(window, text="Infelizmente, você está acima do peso. Obesidade Grau 2.")
+            a = Label(window, text="você está acima do peso. Obesidade Grau 2.")
             a.grid(column=0, row=7)
         elif (float(lol) >= 40):
-            a = Label(window, text="Infelizmente, você está acima do peso. Obesidade Grau 3.")
+            a = Label(window, text="você está acima do peso. Obesidade Grau 3.")
             a.grid(column=0, row=7)
     except ValueError:
         a = Label(window, text="Erro na classificação")
@@ -71,13 +70,4 @@ label.grid(column=0, row=5)
 
 window.mainloop()
 
-'''from datetime import datetime
-now = datetime.now()
-if(now.hour>12 and now.hour<18):
-    print("Olá, boa tarde!")
-elif (now.hour >=0 and now.hour<=12):
-    print("Olá, bom dia!")
-else:
-    print("             Olá, boa noite! Bem vindo ao cálculo do IMC!\n")
 
-'''
