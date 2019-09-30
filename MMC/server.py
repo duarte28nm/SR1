@@ -12,17 +12,17 @@ def CalcI(peso, altura):
         imc = round(peso * 10000 / (altura * altura), 1)
 
     return imc
-# create a socket object
+# criar um objeto de soquete
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# get local machine name
+# obter o nome da máquina local
 host = socket.gethostname()
 port = 9999
-# bind to the port
+# vincular à porta
 serversocket.bind((host, port))
-# queue up to 5 requests
+# enfileira até 5 solicitações
 serversocket.listen(5)
 while True:
-    # establish a connection
+    # estabelecer uma conexão
     clientsocket, addr = serversocket.accept()
     print("oi")
 
