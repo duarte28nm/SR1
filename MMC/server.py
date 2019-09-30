@@ -1,10 +1,10 @@
 # server.py
 import socket
-import time
 
 
+# calcular peso
 def CalcI(peso, altura):
-    if (altura <= 2.5):
+       if (altura <= 2.5): # altura menor que 2.5m
         imc = round(peso / (altura * altura), 1)
 
         return imc
@@ -12,22 +12,22 @@ def CalcI(peso, altura):
         imc = round(peso * 10000 / (altura * altura), 1)
 
     return imc
+
 # criar um objeto de soquete
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 # obter o nome da máquina local
 host = socket.gethostname()
 port = 9999
+
 # vincular à porta
 serversocket.bind((host, port))
+
 # enfileira até 5 solicitações
 serversocket.listen(5)
+
 while True:
-    # estabelecer uma conexão
-    clientsocket, addr = serversocket.accept()
-    print("oi")
-
-    entrada = clientsocket.recv(256).decode('ascii').split(' ')
-
+    # estabelecer valores
     print(entrada)
     try:
         peso = float(entrada[0])
@@ -36,6 +36,7 @@ while True:
     except ValueError:
         res = "Entrada invalida"
 
+    # resultado
     print(res)
     clientsocket.send(res.encode('ascii'))
     clientsocket.close()
